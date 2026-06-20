@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=matmul_benchmark
-#SBATCH --account=2019091.       #YOUR_PROJECT_HERE
-#SBATCH --partition=gpusmall
-#SBATCH --time=00:15:00
+#SBATCH --account=project_2019091.       #YOUR_PROJECT_HERE
+#SBATCH --partition=gputest
+#SBATCH --time=00:05:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
@@ -11,8 +11,8 @@
 #SBATCH --error=logs/matmul_%j.err
 
 # Load modules
-module load gcc/11.3.0
-module load cuda/11.7.0
+module load gcc/11.2.0
+module load cuda/11.5.0
 
 # Create dirs
 mkdir -p logs results
