@@ -4,11 +4,11 @@
 
 This project benchmarks three implementations of matrix multiplication on GPU:
 
-1. **Naive CUDA kernel** — each thread computes one output element, reading directly from global memory.
-2. **Tiled CUDA kernel** — uses shared memory tiling (32×32 tiles) to reduce global memory accesses and improve cache reuse.
-3. **cuBLAS** — NVIDIA's highly optimised BLAS library, used as the SOTA baseline.
+1. **Naive CUDA kernel** — where each thread computes one output element, reading it directly from the global memory.
+2. **Tiled CUDA kernel** — that uses shared memory tiling (32×32 tiles) in order to reduce global memory accesses and improve the cache reuse.
+3. **cuBLAS** — that is NVIDIA's highly optimised BLAS library, used as the SOTA baseline.
 
-The key insight is that the bottleneck in the naive approach is **global memory bandwidth**. By loading tiles into shared memory (which is ~100× faster than global memory), the tiled kernel significantly reduces memory traffic and achieves higher throughput.
+The key insight is that the bottleneck in the naive approach is **global memory bandwidth**. So then by loading tiles into shared memory (which is ~100× faster than global memory), the tiled kernel reduces in a significant way the memory traffic and it also achieves higher throughput.
 
 ## Project Structure
 
@@ -34,7 +34,7 @@ The key insight is that the bottleneck in the naive approach is **global memory 
 ```bash
 ssh <user>@mahti.csc.fi
 git clone <your-repo-url>
-cd matmul_project
+cd Parallel_Programming_finalproject
 ```
 
 ### 2. Edit the SLURM script

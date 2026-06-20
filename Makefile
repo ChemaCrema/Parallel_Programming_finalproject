@@ -1,5 +1,5 @@
 NVCC = nvcc
-CFLAGS = -O3 -arch=sm_80  # sm_80 = Ampere = A100
+CFLAGS = -O3 -arch=sm_80
 LIBS = -lcublas
 
 all: benchmark
@@ -14,5 +14,5 @@ run: benchmark
 	mkdir -p results
 	./benchmark
 
-plot: run
-	cd results && python3 plot.py
+plot:
+	python3 results/plot.py

@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=matmul_benchmark
-#SBATCH --account=2019091
+#SBATCH --account=2019091.       #YOUR_PROJECT_HERE
 #SBATCH --partition=gpusmall
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
