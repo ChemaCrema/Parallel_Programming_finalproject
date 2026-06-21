@@ -114,14 +114,23 @@ void benchmark(int N) {
     float ms_tiled = ms;
     cudaMemcpy(h_C_tiled, d_C, size, cudaMemcpyDeviceToHost);
 
+   
     // ── cuBLAS ──
     cublasHandle_t handle;
     cublasCreate(&handle);
     const float alpha = 1.0f, beta = 0.0f;
+
+    // Warm-up cuBLAS to avoid measuring initialization overhead
+    cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, N, N,
+            &alpha, d_B, N, d_A, N, &beta, d_C, N);
+    cudaDeviceSynchronize();
+
+    // Timed cuBLAS run
     cudaEventRecord(start);
     cublasSgemm(handle, CUBLAS_OP_N, CUBLAS_OP_N, N, N, N,
-                &alpha, d_B, N, d_A, N, &beta, d_C, N);
+            &alpha, d_B, N, d_A, N, &beta, d_C, N);
     cudaEventRecord(stop);
+
     cudaEventSynchronize(stop);
     cudaEventElapsedTime(&ms, start, stop);
     float ms_cublas = ms;

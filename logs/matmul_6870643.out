@@ -1,0 +1,17 @@
+Compiling...
+Running benchmark...
+CUDA Matrix Multiplication Benchmark
+=====================================
+
+GPU: NVIDIA A100-SXM4-40GB
+Compute Capability: 8.0
+Global Memory: 42.5 GB
+
+N= 256 | Naive:     0.03 ms (1092.3 GFLOPS) | Tiled:     0.03 ms (1252.8 GFLOPS) | cuBLAS:    0.04 ms ( 936.2 GFLOPS) | Speedup(T/N): 1.15x | Diff(tiled): 0.00e+00 | Diff(cublas): 6.87e-05
+N= 512 | Naive:     0.13 ms (2032.1 GFLOPS) | Tiled:     0.09 ms (2828.3 GFLOPS) | cuBLAS:    0.05 ms (5698.8 GFLOPS) | Speedup(T/N): 1.39x | Diff(tiled): 0.00e+00 | Diff(cublas): 2.14e-04
+N=1024 | Naive:     0.90 ms (2396.7 GFLOPS) | Tiled:     0.55 ms (3935.1 GFLOPS) | cuBLAS:    0.18 ms (11915.6 GFLOPS) | Speedup(T/N): 1.64x | Diff(tiled): 0.00e+00 | Diff(cublas): 5.80e-04
+N=2048 | Naive:     7.02 ms (2448.9 GFLOPS) | Tiled:     4.11 ms (4182.3 GFLOPS) | cuBLAS:    1.26 ms (13673.4 GFLOPS) | Speedup(T/N): 1.71x | Diff(tiled): 0.00e+00 | Diff(cublas): 0.00e+00
+N=4096 | Naive:    66.84 ms (2056.4 GFLOPS) | Tiled:    33.35 ms (4121.5 GFLOPS) | cuBLAS:    7.24 ms (18992.2 GFLOPS) | Speedup(T/N): 2.00x | Diff(tiled): 0.00e+00 | Diff(cublas): 0.00e+00
+
+Done. Results saved to results/benchmark.csv
+Done!

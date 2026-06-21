@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=matmul_benchmark
-#SBATCH --account=project_2019091.       #YOUR_PROJECT_HERE
+#SBATCH --account=project_2019091       #YOUR_PROJECT_HERE
 #SBATCH --partition=gputest
 #SBATCH --time=00:05:00
 #SBATCH --nodes=1
@@ -26,8 +26,8 @@ echo "Running benchmark..."
 ./benchmark
 
 # Plot (optional, needs matplotlib)
-echo "Generating plots..."
-module load python-data  # Mahti has a python-data module with matplotlib
-python3 results/plot.py
+#echo "Generating plots..."
+#module load python-data  # Mahti has a python-data module with matplotlib
+#python3 results/plot.py
 
 echo "Done!"
